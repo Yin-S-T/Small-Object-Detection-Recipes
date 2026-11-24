@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "small-object-detection-recipes"
+version = "0.1.0"
+description = "Dataset-agnostic recipes for small-object detection experiments"
+requires-python = ">=3.10"
+dependencies = ["Pillow>=10", "numpy>=1.24"]
+
+[project.optional-dependencies]
+video = ["opencv-python-headless>=4.8"]
+test = []
+finetune = ["torch>=2.1", "peft>=0.10"]
+
+[project.scripts]
+small-object-video-mine = "small_object_recipes.video_mining:main"
+
+[tool.setuptools.packages.find]
+include = ["small_object_recipes*"]
